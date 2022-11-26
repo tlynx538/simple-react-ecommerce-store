@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import {Container, Navbar, Nav, NavDropdown, Badge} from 'react-bootstrap';
 class NavbarContainer extends React.Component{
     render(){
         return(
@@ -30,7 +30,7 @@ class NavbarContainer extends React.Component{
                   </NavDropdown>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="#deets">Cart</Nav.Link>
+                    <Nav.Link href="#deets">Cart <Badge pill bg="secondary">0</Badge></Nav.Link>
                     <Nav.Link eventKey={2} href="#memes">Logout</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

@@ -16,7 +16,7 @@ class Home extends React.Component{
                     <Row>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                                <Card.Img variant="top" src="holder.js/100px350" />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>
@@ -29,7 +29,7 @@ class Home extends React.Component{
                         </Col>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
+                                    <Card.Img variant="top" src="holder.js/100px350" />
                                     <Card.Body>
                                         <Card.Title>Card Title</Card.Title>
                                         <Card.Text>
@@ -42,7 +42,7 @@ class Home extends React.Component{
                         </Col>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
+                                    <Card.Img variant="top" src="holder.js/100px350" />
                                     <Card.Body>
                                         <Card.Title>Card Title</Card.Title>
                                         <Card.Text>
@@ -55,7 +55,7 @@ class Home extends React.Component{
                         </Col>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                                <Card.Img variant="top" src="holder.js/100px350" />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>
@@ -73,7 +73,7 @@ class Home extends React.Component{
                     <Row>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                                <Card.Img variant="top" src="holder.js/100px350" />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>
@@ -86,7 +86,7 @@ class Home extends React.Component{
                         </Col>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
+                                    <Card.Img variant="top" src="holder.js/100px350" />
                                     <Card.Body>
                                         <Card.Title>Card Title</Card.Title>
                                         <Card.Text>
@@ -99,7 +99,7 @@ class Home extends React.Component{
                         </Col>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
+                                    <Card.Img variant="top" src="holder.js/100px350" />
                                     <Card.Body>
                                         <Card.Title>Card Title</Card.Title>
                                         <Card.Text>
@@ -112,7 +112,7 @@ class Home extends React.Component{
                         </Col>
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src="holder.js/100px180" />
+                                <Card.Img variant="top" src="holder.js/100px350" />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>
