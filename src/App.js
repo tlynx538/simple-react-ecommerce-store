@@ -1,9 +1,9 @@
 import Home from "./components/Home/Home";
-import ProductView from "./components/Products/ProductView";
+import Products from "./components/Products/Products";
 function App() {
   return (
     // <Home/>
-    <ProductView></ProductView>
+    <Products></Products>
   );
 }
 
