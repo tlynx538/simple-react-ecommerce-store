@@ -2,9 +2,11 @@ import React from 'react';
 import NavbarContainer from '../Home/NavbarContainer';
 import Sidebar from './Sidebar';
 import {Row,Col,Card,Button} from 'react-bootstrap';
+import {useLocation} from 'react-router-dom';
 import './Products.css'
 class Products extends React.Component{
     render(){
+        console.log(this.props.location);
         return(
             <div>
                 <NavbarContainer></NavbarContainer>
@@ -14,6 +16,8 @@ class Products extends React.Component{
                             <Sidebar></Sidebar>
                         </Col>
                         <Col className="vh-100 p-4 scrollable-column">
+                            <h3>Text</h3>
+                            <p>10 results found</p>
                             <Row className="mt-3">
                                 <Col>
                                     <Card>

@@ -49,10 +49,8 @@ class Sidebar extends React.Component{
                 </Row>
             </Col>
             <Row>
-                <Col xs={3}>
-                    <Button className='mt-3' variant="outline-primary">Apply</Button>
-                </Col>
-                <Col xs={4}>
+                <Col>
+                    <Button className='mt-3 me-2' variant="outline-primary">Apply</Button>
                     <Button className='mt-3' variant="outline-primary">Reset</Button>
                 </Col>
              </Row>
