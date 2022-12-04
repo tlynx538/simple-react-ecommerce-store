@@ -10,24 +10,24 @@ class Sidebar extends React.Component{
     };
     render(){
         return(
-            <Container className="mt-4">
+            <Container>
             <h5 className="mb-3">Filters</h5>
             <Col>
                 <Row><h6>Price</h6></Row>
                 <Row>
-                    <Container className="mb-2">
+                    <Container>
                         <ReactSlider
-                        className="horizontal-slider"
-                        thumbClassName="example-thumb"
-                        trackClassName="example-track"
-                        renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}>
+                            className="horizontal-slider"
+                            thumbClassName="example-thumb"
+                            trackClassName="example-track"
+                            renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}>
                         </ReactSlider>
                     </Container>
                 </Row>
             </Col>
             <Col>
                 <Row><h6>Size</h6></Row>
-                <Row className="mb-4">
+                <Row className="p-2 mb-2">
                     <ButtonGroup aria-label="Basic example">
                         <Button variant="outline-secondary">XS</Button>
                         <Button variant="outline-secondary">S</Button>
@@ -39,7 +39,7 @@ class Sidebar extends React.Component{
             </Col>
             <Col>
                 <Row><h6>Ratings</h6></Row>
-                <Row>
+                <Row className="p-1">
                     <ReactStars
                         count={5}
                         onChange={this.ratingChanged}

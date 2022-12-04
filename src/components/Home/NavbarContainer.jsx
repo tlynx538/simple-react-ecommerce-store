@@ -10,14 +10,14 @@ class NavbarContainer extends React.Component{
                   <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto">
                       <NavDropdown title="Men" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/products/men/oversized-shirt">Oversized T-Shirt</NavDropdown.Item>
-                        <NavDropdown.Item href="/products/men/shirt">Oversized Shirt</NavDropdown.Item>
+                        <NavDropdown.Item href="/products/men/oversized-shirt">Oversized Shirt</NavDropdown.Item>
+                        <NavDropdown.Item href="/products/men/shirt">Shirt</NavDropdown.Item>
                         <NavDropdown.Item href="/products/men/polo">Polo</NavDropdown.Item>
-                        <NavDropdown.Item href="/products/men/jacket">Jacket</NavDropdown.Item>
+                        <NavDropdown.Item href="/products/men/jackets">Jacket</NavDropdown.Item>
                         <NavDropdown.Item href="/products/men/shorts">Shorts</NavDropdown.Item>
                       </NavDropdown>
                       <NavDropdown title="Women" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/products/women/oversized-shirt">Oversized T-Shirt</NavDropdown.Item>
+                        <NavDropdown.Item href="/products/women/oversized-shirt">Oversized Shirt</NavDropdown.Item>
                         <NavDropdown.Item href="/products/women/bottoms">Bottoms</NavDropdown.Item>
                         <NavDropdown.Item href="/products/women/hoodies">Sweatshirts and Hoodies</NavDropdown.Item>
                         <NavDropdown.Item href="/products/women/tie-dye">Tie Dye</NavDropdown.Item>

@@ -1,151 +1,86 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavbarContainer from '../Home/NavbarContainer';
 import Sidebar from './Sidebar';
 import {Row,Col,Card,Button} from 'react-bootstrap';
-import {useLocation} from 'react-router-dom';
+import ReactStars from 'react-rating-stars-component';
+import { useParams } from "react-router-dom";
 import './Products.css'
-class Products extends React.Component{
-    render(){
-        console.log(this.props.location);
-        return(
-            <div>
-                <NavbarContainer></NavbarContainer>
-                <div className='mt-5 vh-100'>
-                    <Row>
-                        <Col className="border border-secondary col-md-3 vh-100" size="lg">
-                            <Sidebar></Sidebar>
-                        </Col>
-                        <Col className="vh-100 p-4 scrollable-column">
-                            <h3>Text</h3>
-                            <p>10 results found</p>
-                            <Row className="mt-3">
-                                <Col>
-                                    <Card>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                    <Card>
-                                        <Card.Img variant="top" src="holder.js/100px180" />
-                                        <Card.Body>
-                                            <Card.Title>Card Title</Card.Title>
-                                            <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
-                                            </Card.Text>
-                                            <Button variant="primary">Go somewhere</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                <Card>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                            <Row className="mt-3">
-                                <Col>
-                                    <Card>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                    <Card>
-                                        <Card.Img variant="top" src="holder.js/100px180" />
-                                        <Card.Body>
-                                            <Card.Title>Card Title</Card.Title>
-                                            <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
-                                            </Card.Text>
-                                            <Button variant="primary">Go somewhere</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                <Card>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                            <Row className="mt-3">
-                                <Col>
-                                    <Card>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                    <Card>
-                                        <Card.Img variant="top" src="holder.js/100px180" />
-                                        <Card.Body>
-                                            <Card.Title>Card Title</Card.Title>
-                                            <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
-                                            </Card.Text>
-                                            <Button variant="primary">Go somewhere</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                <Card>
-                                    <Card.Img variant="top" src="holder.js/100px180" />
-                                    <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                </div>
-            </div>
-        )
+import axios from 'axios';
+function Products(){
+    const [items, setItems] = useState([]);
+    // let items = []
+    let query = useParams();
+    let itemMaps = {
+        "oversized-shirt" : "Over Sized Shirt",
+        "jackets" : "Jackets",
+        "polo" : "Polo",
+        "bottoms" : "Bottoms",
+        "shorts" : "Shorts",
+        "shirt" : "Shirt",
+        "tie-dye" : "Tie-Dye",
+        "tops" : "Tops",
+        "hats" : "Hats",
+        "sunglases" : "Sunglasses",
+        "hoodies" : "Hoodies",
+        "gloves" : "Gloves",
     }
+    let genderMaps = {
+        "men" : "Male",
+        "women" : "Female"
+    }
+    let page_section = itemMaps[query["product_category"]];
+    let gender = genderMaps[query["category"]]
+    useEffect(()=> {
+        getItems();
+    },[]);
+    const getItems = async() => {
+        await axios.get("http://127.0.0.1:8000/api/inventory/products/"+gender+"/"+page_section).then(response => setItems(response.data));
+        console.log(items);
+    }
+    return(
+        <div>
+            <NavbarContainer></NavbarContainer>
+            <div className='mt-5 vh-100'>
+                <Row>
+                    <Col className="border border-secondary col-md-3 vh-100 p-4" size="lg">
+                        <Sidebar></Sidebar>
+                    </Col>
+                    <Col className="vh-100 p-4 scrollable-column">
+                        <h3>{page_section}</h3>
+                        <p>{items.length} results found</p>
+                        <div className="grid-container">
+                        {items.map((elem) => (
+                                <div className='grid-item'>
+                                <Card>
+                                    <Card.Img variant="top" src="holder.js/100px200" />
+                                    <Card.Body>
+                                        <Card.Title>{elem.product_name}</Card.Title>
+                                        <Card.Text>
+                                        {elem.product_desc} 
+                                        </Card.Text>
+                                        <Col>
+                                            <Row>
+                                                <ReactStars edit={false} value={elem.rating}></ReactStars>
+                                            </Row>
+                                            <Row>
+                                                <Card.Text>₹{elem.price}</Card.Text>
+                                            </Row>
+                                            <Row>
+                                                <Card.Text>{elem.discount}% off</Card.Text>
+                                            </Row>
+                                            <Row xs={2} className="p-3 col-md-0">
+                                                <Button variant="primary">Add To Cart</Button>
+                                            </Row>
+                                        </Col>
+                                    </Card.Body>
+                                </Card>        
+                                </div>
+                        ))}
+                        </div>
+                    </Col>
+                </Row>
+            </div>
+        </div>
+    )
 }
 export default Products;
