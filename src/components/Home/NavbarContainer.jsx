@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Container, Navbar, Nav, NavDropdown, Badge} from 'react-bootstrap';
-class NavbarContainer extends React.Component{
-    render(){
+import axios from 'axios';
+function NavbarContainer(){
+    const [cartSize, setCartSize] = useState();
+    useEffect(() => {
+      const user_id = 2;
+      axios.get("http://127.0.0.1:8000/api/inventory/view/cart/"+user_id).then(response => setCartSize((response.data).length));
+    },[])
         return(
                 <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
                 <Container>
@@ -30,7 +35,7 @@ class NavbarContainer extends React.Component{
                       </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="/cart">Cart <Badge pill bg="secondary">0</Badge></Nav.Link>
+                        <Nav.Link href="/cart">Cart <Badge pill bg="secondary">{cartSize}</Badge></Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">Logout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -38,6 +43,6 @@ class NavbarContainer extends React.Component{
               </Navbar>
         )
     }
-}
+
 
 export default NavbarContainer;

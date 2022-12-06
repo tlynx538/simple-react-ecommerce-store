@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import App from './App';
 import Products from './components/Products/Products';
+import Cart from './components/Cart/Cart';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/products/:category/:product_category",
     element: <Products/>
+  },
+  {
+    path: "/cart",
+    element: <Cart/>
   }
 ]);
 

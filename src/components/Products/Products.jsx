@@ -8,7 +8,6 @@ import './Products.css'
 import axios from 'axios';
 function Products(){
     const [items, setItems] = useState([]);
-    // let items = []
     let query = useParams();
     let itemMaps = {
         "oversized-shirt" : "Over Sized Shirt",
@@ -35,7 +34,14 @@ function Products(){
     },[]);
     const getItems = async() => {
         await axios.get("http://127.0.0.1:8000/api/inventory/products/"+gender+"/"+page_section).then(response => setItems(response.data));
-        console.log(items);
+    }
+    const addItemToCart = async(item_id) => {
+        const request_body = {
+            "item_id" : item_id,
+            "user_id" : 2,
+            "quantity" : 1
+        }
+        await axios.post("http://127.0.0.1:8000/api/inventory/add/cart",request_body).then(response => {console.log(response)}).catch(error => {console.log(error)});
     }
     return(
         <div>
@@ -69,7 +75,7 @@ function Products(){
                                                 <Card.Text>{elem.discount}% off</Card.Text>
                                             </Row>
                                             <Row xs={2} className="p-3 col-md-0">
-                                                <Button variant="primary">Add To Cart</Button>
+                                                <Button variant="primary" onClick={() => addItemToCart(elem.item_id)}>Add To Cart</Button>
                                             </Row>
                                         </Col>
                                     </Card.Body>
