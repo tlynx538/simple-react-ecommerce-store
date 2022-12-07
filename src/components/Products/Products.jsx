@@ -41,7 +41,7 @@ function Products(){
             "user_id" : 2,
             "quantity" : 1
         }
-        await axios.post("http://127.0.0.1:8000/api/inventory/add/cart",request_body).then(response => {console.log(response)}).catch(error => {console.log(error)});
+        await axios.post("http://127.0.0.1:8000/api/inventory/add/cart",request_body).then(response => getItems()).catch(error => {console.log(error)});
     }
     return(
         <div>

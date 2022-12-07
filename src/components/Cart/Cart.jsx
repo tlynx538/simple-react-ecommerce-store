@@ -6,11 +6,20 @@ function Cart() {
     const [cartItems, setCartItems] = useState([])
 
     useEffect (() => {
+        getCartItems()
+    },[]) 
+
+    const getCartItems = async() => {
         const user_id = 2;
         axios.get("http://127.0.0.1:8000/api/inventory/view/cart/"+user_id).then(response => setCartItems(response.data));
-        console.log(cartItems);
-    },[]) 
-    
+    }
+    const DeleteItem = async(item_id) => {
+        const request_body = {
+            "item_id" : item_id,
+            "user_id" : 2,
+        }
+        await axios.post("http://127.0.0.1:8000/api/inventory/delete/cart",request_body).then(response => getCartItems()).catch(error => {console.log(error)});
+    } 
   return (
     <div>
         <NavbarContainer></NavbarContainer>
@@ -37,7 +46,7 @@ function Cart() {
                                                 <p>Quantity : {elem.quantity}</p>
                                             </Col>
                                             <Col>
-                                                <Button className="btn btn-danger">Remove</Button>
+                                                <Button className="btn btn-danger" onClick={() => DeleteItem(elem.item_id)}>Remove Item</Button>
                                             </Col>
                                         </Row>
                                     </Card.Body>
